@@ -12,12 +12,12 @@
   ],
   "main": "src/app.js",
   "scripts": {
-    "start": "pm2 start process.json",
-    "start.dev": "node bin/server.js --env=development",
-    "start.pro": "node bin/server.js --env=production",
+    "start": "pm2 start process.json --name testdci --env=production",
+    "start.dev": "pm2 start process.json --name testdci --env=development",
+    "pro": "node bin/server.js --env=production",
     "dev": "./node_modules/.bin/nodemon bin/server.js --env=development"
   },
-  "author": "wilee",
+  "author": "cloudwood",
   "license": "MIT",
   "dependencies": {
     "debug": "^2.2.0",

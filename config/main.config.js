@@ -26,7 +26,7 @@ module.exports = {
   // 站点相关的配置
   site: {
     env: env,
-    port: process.env.PORT || 3000
+    port: process.env.PORT || 8006
   },
 
   // 路径相关的配置

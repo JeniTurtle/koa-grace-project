@@ -4,6 +4,8 @@ const path = require("path");
 
 const env = 'development';
 
+const port = 8006;
+
 process.env.DEBUG = process.env.DEBUG || 'koa-grace*';
 
 module.exports = {
@@ -23,7 +25,7 @@ module.exports = {
   api: {
     api: 'https://api.yunlaiwu.com/',
     testapi: 'https://api.github.com/',
-    local: 'http://127.0.0.1:3000/__MOCK__/pc/'
+    local: 'http://127.0.0.1:' + port + '/__MOCK__/pc/'
   },
 
   // mock server配置
@@ -34,17 +36,13 @@ module.exports = {
   // 站点相关的配置
   site: {
     env: env,
-    port: 3000,
+    port: port,
     hostname: 'localhost'
   },
 
   // 通用参数，以模板参数的形式传递给模板引擎
   constant: {
     env: env,
-
-    domain: {
-      pc: 'http://127.0.0.1:3000'
-    },
 
     // 模板文件拿来动态加载静态资源
     gulp: function (app, dir, file) {

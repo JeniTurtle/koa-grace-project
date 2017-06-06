@@ -22,8 +22,7 @@ module.exports = {
   // controller中请求各类数据前缀和域名的键值对
   api: {
     api: 'https://api.yunlaiwu.com/',
-    testapi: 'https://api.github.com/',
-    local: 'http://127.0.0.1:3000/__MOCK__/pc/'
+    testapi: 'https://api.github.com/'
   },
 
   // mock server配置
@@ -34,7 +33,7 @@ module.exports = {
   // 站点相关的配置
   site: {
     env: env,
-    port: 3000,
+    port: 8006,
     hostname: 'cloudwood'
   },
 

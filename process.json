@@ -1,7 +1,7 @@
 {
   "apps": [{
+    "name": "koa-base",
     "script": "bin/server.js",
-    "args":"--env=production",
     "instances" : "max",
     "exec_mode" : "cluster",
     "error_file": "./log/server.error.log",

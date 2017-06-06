@@ -12,8 +12,8 @@
   ],
   "main": "src/app.js",
   "scripts": {
-    "start": "pm2 start process.json --name testdci --env=production",
-    "start.dev": "pm2 start process.json --name testdci --env=development",
+    "start": "NODE_ENV='production' pm2 start process.json",
+    "start.dev": "NODE_ENV='development' pm2 start process.json",
     "pro": "node bin/server.js --env=production",
     "dev": "./node_modules/.bin/nodemon bin/server.js --env=development"
   },

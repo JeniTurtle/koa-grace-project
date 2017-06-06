@@ -1,4 +1,5 @@
 /apps
+/log
 /.idea
 /node_modules
 npm-debug.*

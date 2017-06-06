@@ -11,8 +11,13 @@ process.env.DEBUG = process.env.DEBUG || 'koa-grace*';
 module.exports = {
   // vhost配置
   vhost: {
+    // 本地host
     '127.0.0.1': 'pc',
-    'localhost': 'pc'
+    'localhost': 'pc',
+    // 测试环境host
+    'testdci.yunlaiwu.com': 'pc',
+    // 线上环境host
+    'banquanbaohu.yunlaiwu.com': 'pc'
   },
 
   // proxy配置

@@ -1,10 +1,14 @@
 "use strict";
 
+const fs = require("fs");
 const path = require("path");
+const util = require("util");
 
 const env = 'development';
 
-const port = 8006;
+const port = 3001;
+
+const appsPath = path.resolve(__dirname, '../apps/');
 
 process.env.DEBUG = process.env.DEBUG || 'koa-grace*';
 
@@ -50,18 +54,18 @@ module.exports = {
     env: env,
 
     // 模板文件拿来动态加载静态资源
-    gulp: function (app, dir, file) {
-      return path.join('/', app, 'static', dir, file);
+    src: function (app, dir, ext) {
+      return src(path.join('/', app, 'static', dir), ext);
     }
   },
 
   // 路径相关的配置
   path: {
     // project
-    project: path.resolve(__dirname, '../apps/'),
+    project: appsPath,
     // 当直接访问域名时的默认路由
     default_path: {
-      pc: '/demo/home/'
+      pc: '/dci/home/'
     },
     // 如果设置jump为false，则当直接访问域名时不重定向到default_path
     default_jump: {
@@ -75,3 +79,30 @@ module.exports = {
   }
 
 };
+
+
+
+function src(dir, ext) {
+  ext = ext == 'css' ? 'less' : ext;
+
+  let tags = {
+    js: '<script src="%s" type="text/javascript"></script>',
+    less: '<link href="%s" rel="stylesheet" type="text/less" />'
+  };
+
+  if (!ext || !tags[ext]) {
+    return dir;
+  }
+
+  let arr = [];
+  let files = fs.readdirSync(path.join(appsPath, dir));
+
+  files.forEach((fileName) => {
+    if (fileName.indexOf("." + ext) >= 0) {
+      let filePath = path.join(dir, fileName);
+      let tag = util.format(tags[ext], filePath);
+      arr.push(tag);
+    }
+  });
+  return arr.join('');
+}

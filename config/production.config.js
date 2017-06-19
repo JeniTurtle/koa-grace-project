@@ -2,7 +2,10 @@
 
 const path = require("path");
 const fs = require('fs');
+const util = require('util');
 const env = 'production';
+
+const appsPath = path.resolve(__dirname, '../apps/');
 
 process.env.DEBUG = process.env.DEBUG || 'koa-grace-error*';
 
@@ -50,16 +53,29 @@ module.exports = {
       pc: 'http://127.0.0.1:3000'
     },
     // 模板文件拿来动态加载静态资源
-    gulp: gulp
+    src: function(app, dir, ext) {
+      let tags = {
+        js: '<script src="%s" type="text/javascript"></script>',
+        css: '<link href="%s" rel="stylesheet" type="text/css" />'
+      };
+
+      if (!ext || !tags[ext]) {
+        return path.join('/', app, 'static', dir);
+      }
+
+      let dirs = dir.split("/");
+      let url = path.join('/', app, 'build', dir, dirs.pop() + "." + (ext || "")) + "?t=" + getVersion(app, dirs[0]);
+      return util.format(tags[ext], url);
+    }
   },
 
   // 路径相关的配置
   path: {
     // project
-    project: path.resolve(__dirname, '../apps/'),
+    project: appsPath,
     // 当直接访问域名时的默认路由
     default_path: {
-      pc: '/demo/home/'
+      pc: '/dci/home/'
     },
     // 如果设置jump为false，则当直接访问域名时不重定向到default_path
     default_jump: {
@@ -73,24 +89,6 @@ module.exports = {
   }
 
 };
-
-function gulp(app, dir, file) {
-  let dir_list = dir.split("/");
-
-  if (dir_list.length < 2 || !file) {
-    return path.join('/', app, dir, file || '');
-  }
-
-  let ext = '.' + file.split('.').pop();
-
-  if (ext == '.scss' || ext == '.less' || ext == '.sass') {
-    ext = '.css';
-  }
-
-  let src = path.join('/', app, 'build', dir, dir_list.pop() + ext);
-
-  return src + "?t=" + getVersion(app, dir_list[0]);
-}
 
 function getVersion(app, module) {
   try {

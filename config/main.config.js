@@ -34,7 +34,7 @@ module.exports = {
     // project
     project: path.resolve(__dirname, '../apps/'),
     default_path: {
-      pc: '/demo/home/'
+      pc: '/dci/home/'
     },
     // 如果设置jump为false，则当直接访问域名时不重定向到default_path
     default_jump: {

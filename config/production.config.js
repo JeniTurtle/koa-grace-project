@@ -30,7 +30,7 @@ module.exports = {
   // controller中请求各类数据前缀和域名的键值对
   api: {
     api: 'https://api.yunlaiwu.com/',
-    testapi: 'https://api.github.com/'
+    testapi: 'http://testapi.yunlaiwu.com:8099/'
   },
 
   // mock server配置

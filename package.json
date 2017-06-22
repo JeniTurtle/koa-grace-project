@@ -14,6 +14,7 @@
   "scripts": {
     "start": "NODE_ENV='production' pm2 start process.json",
     "start.dev": "NODE_ENV='development' pm2 start process.json",
+    "restart": "NODE_ENV='production' pm2 restart process.json",
     "pro": "node bin/server.js --env=production",
     "dev": "./node_modules/.bin/nodemon bin/server.js --env=development"
   },

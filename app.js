@@ -1,6 +1,7 @@
 'use strict';
 
 const path = require('path');
+const util = require('util');
 const koa = require('koa');
 const mock = require('koa-grace-mock');
 const router = require('koa-grace-router');
@@ -16,10 +17,38 @@ let config = global.config;
 let app = koa();
 
 app.use(function *(next){
-  var start = new Date;
+  let that = this;
+  let start = new Date;
+
+  this.consoleLog = {
+    type: 'normal-log',
+    text: null
+  };
+
+  this.logger = {
+    log: function(text) {
+      that.consoleLog.text = text;
+    },
+    error: function(text) {
+      that.consoleLog.type = 'error-log';
+      that.consoleLog.text = text;
+    }
+  };
+
   yield next;
-  var ms = new Date - start;
-  console.log('%s %s - %sms headers: %s', this.method, this.url, ms, JSON.stringify(this.request.headers));
+  let ms = new Date - start;
+
+  let logMessage = util.format(this.consoleLog.type + ': %s %s - status:[%s] - %sms - headers: %s', this.method, this.url, this.status, ms, JSON.stringify(this.request.headers));
+
+  if (this.consoleLog.text) {
+    logMessage += (' logMessage: ' + this.consoleLog.text);
+  }
+
+  if (this.consoleLog.type == 'normal-log') {
+    console.log(logMessage);
+  } else {
+    console.error(logMessage);
+  }
 });
 
 // compress

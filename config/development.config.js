@@ -34,6 +34,7 @@ module.exports = {
   api: {
     api: 'https://api.yunlaiwu.com/',
     testapi: 'http://testapi.yunlaiwu.com:8099/',
+    xpage: 'https://y.yunlaiwu.com/',
     local: 'http://127.0.0.1:' + port + '/__MOCK__/pc/'
   },
 

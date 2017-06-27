@@ -37,7 +37,8 @@
       "repo": "git@github.com/yunlaiwu/koa-pc.git",
       "ssh_options": ["StrictHostKeyChecking=no", "PasswordAuthentication=no"],
       "path": "/home/work/koa_pc/",
-      "post-deploy": "npm install --production && sh ../../koa_base/deploy.sh && pm2 startOrRestart process.json --env production"
+      "pre-deploy": "git pull",
+      "post-deploy": "sh ../../koa_base/deploy.sh pc && pm2 startOrRestart process.json --env production"
     }
   }
 }

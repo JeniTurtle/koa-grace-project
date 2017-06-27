@@ -1,7 +1,7 @@
 case $1 in
 pc)
-    pc_root=/home/work/koa_base/source/apps/pc
-    pc_code=/home/work/koa_pc/source
+    pc_root=/home/work/node/servers/koa_base/source/apps/pc
+    pc_code=/home/work/node/servers/koa_pc/source
 
     cp -r $pc_code/* $pc_root
 

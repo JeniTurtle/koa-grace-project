@@ -37,7 +37,7 @@
       "repo": "git@github.com/yunlaiwu/koa-base.git",
       "ssh_options": ["StrictHostKeyChecking=no", "PasswordAuthentication=no"],
       "path": "/home/work/node/servers/koa_base",
-      "post-deploy": "npm install && pm2 startOrRestart process.json --env production"
+      "post-deploy": "git pull && npm install && npm run restart"
     },
     "dev-pc": {
       "user": "work",

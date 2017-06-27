@@ -17,8 +17,7 @@
       "repo": "git@github.com/yunlaiwu/koa-base.git",
       "ssh_options": ["StrictHostKeyChecking=no", "PasswordAuthentication=no"],
       "path": "/home/work/node/servers/koa_base",
-      "pre-deploy": "git pull",
-      "post-deploy": "npm install && pm2 startOrRestart process.json --env production"
+      "post-deploy": "git pull && npm install && pm2 startOrRestart process.json --env production"
     },
     "pro-pc": {
       "user": "work",
@@ -27,8 +26,7 @@
       "repo": "git@github.com/yunlaiwu/koa-pc.git",
       "ssh_options": ["StrictHostKeyChecking=no", "PasswordAuthentication=no"],
       "path": "/home/work/node/servers/koa_pc",
-      "pre-deploy": "git pull",
-      "post-deploy": "cd ../../koa_base/current && sh deploy.sh pc && pm2 startOrRestart process.json --env production"
+      "post-deploy": "cd ../../koa_base/source && sh deploy.sh pc && pm2 startOrRestart process.json --env production"
     },
     "dev-base": {
       "user": "work",
@@ -46,8 +44,7 @@
       "repo": "git@github.com/yunlaiwu/koa-pc.git",
       "ssh_options": ["StrictHostKeyChecking=no", "PasswordAuthentication=no"],
       "path": "/home/work/node/servers/koa_pc",
-      "pre-deploy": "git pull",
-      "post-deploy": "cd ../../koa_base/current && sh deploy.sh pc && pm2 startOrRestart process.json --env production"
+      "post-deploy": "cd ../../koa_base/source && sh deploy.sh pc && pm2 startOrRestart process.json --env production"
     }
   }
 }

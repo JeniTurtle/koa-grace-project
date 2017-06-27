@@ -10,7 +10,7 @@
     "log_date_format": "YYYY-MM-DD HH:mm:ss"
   }],
   "deploy": {
-    "pro": {
+    "pro-base": {
       "user": "work",
       "host": ["10.10.124.34", "10.10.144.133"],
       "ref": "origin/master",
@@ -30,7 +30,7 @@
       "pre-deploy": "git pull",
       "post-deploy": "cd ../../koa_base/source && sh deploy.sh pc && pm2 startOrRestart process.json --env production"
     },
-    "dev": {
+    "dev-base": {
       "user": "work",
       "host": ["10.10.85.164"],
       "ref": "origin/master",

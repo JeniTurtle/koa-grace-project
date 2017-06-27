@@ -18,7 +18,7 @@
       "ssh_options": ["StrictHostKeyChecking=no", "PasswordAuthentication=no"],
       "path": "/home/work/koa-base",
       "pre-deploy": "git pull",
-      "post-deploy": "npm install --production && pm2 startOrReload process.json --env production"
+      "post-deploy": "npm install --production && pm2 restart process.json"
     },
     "dev": {
       "user": "work",
@@ -26,8 +26,8 @@
       "ref": "origin/master",
       "repo": "git@github.com/yunlaiwu/koa-base.git",
       "ssh_options": ["StrictHostKeyChecking=no", "PasswordAuthentication=no"],
-      "path": "/home/work/koa-base/",
-      "post-deploy": "npm install --production && pm2 startOrReload process.json --env production"
+      "path": "/home/work/koa_base/",
+      "post-deploy": "npm install --production && pm2 restart process.json"
     }
   }
 }

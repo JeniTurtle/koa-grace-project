@@ -18,7 +18,7 @@
       "ssh_options": ["StrictHostKeyChecking=no", "PasswordAuthentication=no"],
       "path": "/home/work/node/servers/koa_base",
       "pre-deploy": "git pull",
-      "post-deploy": "npm install --production && pm2 startOrRestart process.json --env production"
+      "post-deploy": "npm install && pm2 startOrRestart process.json --env production"
     },
     "pro-pc": {
       "user": "work",
@@ -38,7 +38,7 @@
       "ssh_options": ["StrictHostKeyChecking=no", "PasswordAuthentication=no"],
       "path": "/home/work/node/servers/koa_base/",
       "pre-deploy": "git pull",
-      "post-deploy": "npm install --production && pm2 startOrRestart process.json --env production"
+      "post-deploy": "npm install && pm2 startOrRestart process.json --env production"
     },
     "dev-pc": {
       "user": "work",

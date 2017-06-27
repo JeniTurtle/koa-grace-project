@@ -14,7 +14,7 @@
       "user": "work",
       "host": ["10.10.124.34", "10.10.144.133"],
       "ref": "origin/master",
-      "repo": "https://PlutoZX:zhaoxuan1202@github.com/yunlaiwu/koa-base.git",
+      "repo": "git@github.com/yunlaiwu/koa-base.git",
       "ssh_options": ["StrictHostKeyChecking=no", "PasswordAuthentication=no"],
       "path": "/home/work/koa-base",
       "pre-deploy": "git pull",
@@ -24,7 +24,7 @@
       "user": "work",
       "host": ["10.10.85.164"],
       "ref": "origin/master",
-      "repo": "https://PlutoZX:zhaoxuan1202@github.com/yunlaiwu/koa-base.git",
+      "repo": "git@github.com/yunlaiwu/koa-base.git",
       "ssh_options": ["StrictHostKeyChecking=no", "PasswordAuthentication=no"],
       "path": "/home/work/koa_base/",
       "post-deploy": "npm install --production && pm2 restart process.json"

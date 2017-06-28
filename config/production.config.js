@@ -18,6 +18,7 @@ module.exports = {
     // 测试环境host
     'testdci.yunlaiwu.com': 'pc',
     // 线上环境host
+    'dci.yunlaiwu.com': 'pc',
     'banquanbaohu.yunlaiwu.com': 'pc'
   },
 

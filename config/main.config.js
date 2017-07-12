@@ -11,6 +11,13 @@ let env = process.env.NODE_ENV || 'development';
 module.exports = {
 
   extend: true,
+
+  vhost: {
+    '127.0.0.1': 'pc',
+    'localhost': 'pc',
+    'testdci.yunlaiwu.com': 'pc',
+    'dci.yunlaiwu.com': 'pc'
+  },
   
   // proxy timeout时间
   proxy: {
@@ -40,11 +47,6 @@ module.exports = {
     default_jump: {
       pc: false
     }
-  },
-
-  // vhost配置
-  vhost: {
-    '127.0.0.1': 'pc'
   },
 
   // 模板引擎配置

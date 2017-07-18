@@ -24,12 +24,6 @@ module.exports = {
     timeout: 15000
   },
 
-  // controller中请求各类数据前缀和域名的键值对
-  api: {
-    api: 'https://api.yunlaiwu.com/',
-    testapi: 'https://api.github.com/'
-  },
-
   // 站点相关的配置
   site: {
     env: env,

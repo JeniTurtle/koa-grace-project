@@ -20,14 +20,6 @@ module.exports = {
     timeout: 15000
   },
 
-  // controller中请求各类数据前缀和域名的键值对
-  api: {
-    api: 'https://api.yunlaiwu.com/',
-    testapi: 'http://testapi.yunlaiwu.com:8099/',
-    xpage: 'https://y.yunlaiwu.com/',
-    local: 'http://127.0.0.1:' + port + '/__MOCK__/pc/'
-  },
-
   // mock server配置
   mock: {
     prefix: '/__MOCK__/'
@@ -40,6 +32,14 @@ module.exports = {
     hostname: 'localhost'
   },
 
+  // controller中请求各类数据前缀和域名的键值对
+  api: {
+    api: 'https://api.yunlaiwu.com/',
+    testapi: 'http://testapi.yunlaiwu.com:8099/',
+    xpage: 'https://y.yunlaiwu.com/',
+    local: 'http://127.0.0.1:' + port + '/__MOCK__/pc/'
+  },
+
   // 通用参数，以模板参数的形式传递给模板引擎
   constant: {
     env: env,
@@ -48,25 +48,6 @@ module.exports = {
     src: function (app, dir, ext) {
       return src(path.join('/', app, 'static', dir), ext);
     }
-  },
-
-  // 路径相关的配置
-  path: {
-    // project
-    project: appsPath,
-    // 当直接访问域名时的默认路由
-    default_path: {
-      pc: '/dci/home/'
-    },
-    // 如果设置jump为false，则当直接访问域名时不重定向到default_path
-    default_jump: {
-      pc: true
-    }
-  },
-
-  // 模板引擎配置，默认：swig
-  template: {
-    pc: 'swig'
   }
 
 };

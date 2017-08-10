@@ -39,7 +39,7 @@ module.exports = {
     },
     // 如果设置jump为false，则当直接访问域名时不重定向到default_path
     default_jump: {
-      pc: false
+      pc: true
     }
   },
 

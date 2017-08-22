@@ -16,7 +16,8 @@ module.exports = {
     '127.0.0.1': 'pc',
     'localhost': 'pc',
     'testdci.yunlaiwu.com': 'pc',
-    'dci.yunlaiwu.com': 'pc'
+    'dci.yunlaiwu.com': 'pc',
+    'banquanbaohu.com': 'pc'
   },
   
   // proxy timeout时间

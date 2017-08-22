@@ -71,7 +71,7 @@ let vhosts = Object.keys(config.vhost);
 app.use(vhost(vhosts.map((item) => {
   let vapp = koa();
 
-  let appName = config.vhost[item];
+  let appName = config.vhost[item].split('/')[0];
   let appPath = path.resolve(config.path.project + '/' + appName);
 
   // 在开发环境才使用mock数据功能
@@ -102,8 +102,8 @@ app.use(vhost(vhosts.map((item) => {
   // 配置控制器文件路由
   vapp.use(router(vapp, {
     root: appPath + '/controller',
-    default_path: config.path.default_path[appName],
-    default_jump: config.path.default_jump[appName],
+    default_path: config.path.default_path[config.vhost[item]],
+    default_jump: config.path.default_jump[config.vhost[item]],
     domain: item,
     errorPath: '/error/404'
   }));

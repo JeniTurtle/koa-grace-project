@@ -78,7 +78,7 @@ app.use(vhost(vhosts.map((item) => {
   config.site.env == 'development' && vapp.use(mock(vapp, {
     root: appPath + '/mock/',
     prefix: config.mock.prefix + appName
-  }))
+  }));
 
   // 配置api
   vapp.use(proxy(vapp, config.api, {

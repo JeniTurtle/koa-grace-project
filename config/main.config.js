@@ -17,7 +17,8 @@ module.exports = {
     'localhost': 'pc',
     'testdci.yunlaiwu.com': 'pc',
     'dci.yunlaiwu.com': 'pc',
-    'banquanbaohu.com': 'pc'
+    'banquanbaohu.com': 'pc',
+    'chenming.banquanbaohu.com': 'pc'
   },
   
   // proxy timeout时间
@@ -36,11 +37,11 @@ module.exports = {
     // project
     project: path.resolve(__dirname, '../apps/'),
     default_path: {
-      pc: '/dci/home/'
+      pc: '/dci/home'
     },
     // 如果设置jump为false，则当直接访问域名时不重定向到default_path
     default_jump: {
-      pc: true
+      pc: false
     }
   },
 

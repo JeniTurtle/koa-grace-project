@@ -18,6 +18,7 @@ module.exports = {
     'testdci.yunlaiwu.com': 'pc/dci',
     'dci.yunlaiwu.com': 'pc/dci',
     'banquanbaohu.com': 'pc/dci',
+    'www.banquanbaohu.com': 'pc/dci',
     'chenming.banquanbaohu.com': 'pc/dci'
   },
   
